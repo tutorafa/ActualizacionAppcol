@@ -53,7 +53,6 @@
       text-align: center; line-height: 1.6;
     }
 
-    /* Botón play principal */
     .btn-play {
       width: 68px; height: 68px; border-radius: 50%;
       background: var(--red);
@@ -66,10 +65,9 @@
     .btn-play:active { transform: scale(.92); box-shadow: 0 2px 10px rgba(237,28,36,0.30); }
     .btn-play svg { width: 28px; height: 28px; margin-left: 4px; }
 
-    /* Overlay modal */
     .overlay {
       position: fixed; inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.52);
       display: flex; align-items: center; justify-content: center;
       opacity: 0; pointer-events: none;
       transition: opacity .22s ease;
@@ -80,7 +78,7 @@
     .modal {
       background: #fff; border: 3px solid var(--red); border-radius: 14px;
       width: min(80vw, 300px); padding: 36px 28px 32px;
-      display: flex; flex-direction: column; align-items: center; gap: 0;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
       transform: scale(.92) translateY(10px);
       transition: transform .22s ease;
@@ -88,15 +86,23 @@
     .overlay.visible .modal { transform: scale(1) translateY(0); }
 
     .modal-text {
-      font-size: 15px; font-weight: 400; color: #1a1a1a;
+      font-size: 16px; font-weight: 400; color: #1a1a1a;
       text-align: center; line-height: 1.6;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      width: 100%;
-      padding: 8px 0;
     }
-    .modal-text:hover { color: var(--red); }
+
+    .modal-link {
+      display: inline-block;
+      font-size: 15px; font-weight: 700;
+      color: #fff;
+      background: var(--red);
+      border-radius: 8px;
+      padding: 12px 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(237,28,36,0.35);
+      transition: transform .12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .modal-link:active { transform: scale(.95); }
   </style>
 </head>
 <body>
@@ -129,11 +135,12 @@
   <!-- Modal -->
   <div class="overlay" id="overlay" onclick="cerrarSiFuera(event)">
     <div class="modal">
-      <a class="modal-text"
-         href="reactivacion-actividad-profesional.mp4"
-         target="_top"
+      <p class="modal-text">Vas a ver el vídeo<br><strong>Reactivación de actividad profesional</strong></p>
+      <a class="modal-link"
+         href="https://tutorafa.github.io/ActualizacionAppcol/Reactivaci%C3%B3n%20actividad%20profesional.mp4"
+         target="_blank"
          rel="noopener">
-        Vas a ver el vídeo.<br>Toca aquí para continuar.
+        Ver vídeo
       </a>
     </div>
   </div>

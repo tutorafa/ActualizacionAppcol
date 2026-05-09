@@ -78,31 +78,22 @@
     .modal {
       background: #fff; border: 3px solid var(--red); border-radius: 14px;
       width: min(80vw, 300px); padding: 36px 28px 32px;
-      display: flex; flex-direction: column; align-items: center; gap: 18px;
+      display: flex; flex-direction: column; align-items: center;
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
       transform: scale(.92) translateY(10px);
       transition: transform .22s ease;
     }
     .overlay.visible .modal { transform: scale(1) translateY(0); }
 
-    .modal-text {
-      font-size: 16px; font-weight: 400; color: #1a1a1a;
-      text-align: center; line-height: 1.6;
-    }
-
     .modal-link {
-      display: inline-block;
-      font-size: 15px; font-weight: 700;
-      color: #fff;
-      background: var(--red);
-      border-radius: 8px;
-      padding: 12px 24px;
+      font-size: 16px; font-weight: 400; color: #1a1a1a;
+      text-align: center; line-height: 1.7;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(237,28,36,0.35);
-      transition: transform .12s;
-      -webkit-tap-highlight-color: transparent;
+      display: block;
+      width: 100%;
+      padding: 4px 0;
     }
-    .modal-link:active { transform: scale(.95); }
+    .modal-link:active { color: var(--red); }
   </style>
 </head>
 <body>
@@ -132,15 +123,14 @@
 
   </div>
 
-  <!-- Modal -->
+  <!-- Modal: solo texto clicable -->
   <div class="overlay" id="overlay" onclick="cerrarSiFuera(event)">
     <div class="modal">
-      <p class="modal-text">Vas a ver el vídeo<br><strong>Reactivación de actividad profesional</strong></p>
       <a class="modal-link"
-         href="https://tutorafa.github.io/ActualizacionAppcol/Reactivaci%C3%B3n%20actividad%20profesional.mp4"
+         href="https://tutorafa.github.io/ActualizacionAppcol/Reactivacion_actividad.mp4"
          target="_blank"
          rel="noopener">
-        Ver vídeo
+        Vas a ver el vídeo.<br>Toca aquí para continuar.
       </a>
     </div>
   </div>

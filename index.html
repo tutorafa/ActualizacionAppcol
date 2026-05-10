@@ -7,7 +7,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red: #E02020; --red-light: rgba(224,32,32,0.07); --red-mid: rgba(224,32,32,0.15); }
+    :root { --red: #E02020; --red-light: rgba(224,32,32,0.07); }
 
     html, body {
       min-height: 100%; width: 100%; background: #f0f0f0;
@@ -136,53 +136,24 @@
       font-size: 13px; font-weight: 400; color: #999;
     }
 
-    /* Botón Ver vídeo */
+    /* Botón Ver vídeo — enlace directo al mp4 */
     .btn-video {
       margin-top: 20px;
       width: 100%;
       background: var(--red);
-      border: none; outline: none; cursor: pointer;
       border-radius: 50px;
       padding: 18px 32px;
       display: flex; align-items: center; justify-content: center; gap: 12px;
       box-shadow: 0 6px 20px rgba(224,32,32,0.35);
       transition: transform .12s, box-shadow .12s;
       -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
     }
     .btn-video:active { transform: scale(.96); box-shadow: 0 3px 12px rgba(224,32,32,0.30); }
     .btn-video svg { width: 20px; height: 20px; flex-shrink: 0; }
     .btn-video span {
       font-size: 17px; font-weight: 700; color: #fff; letter-spacing: .02em;
     }
-
-    /* Overlay modal */
-    .overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.50);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .22s ease;
-      z-index: 100;
-    }
-    .overlay.visible { opacity: 1; pointer-events: all; }
-
-    .modal {
-      background: #fff; border-radius: 20px;
-      width: min(82vw, 300px); padding: 36px 28px;
-      display: flex; flex-direction: column; align-items: center;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
-      transform: scale(.92) translateY(10px);
-      transition: transform .22s ease;
-    }
-    .overlay.visible .modal { transform: scale(1) translateY(0); }
-
-    .modal-link {
-      font-size: 16px; font-weight: 400; color: #1a1a1a;
-      text-align: center; line-height: 1.7;
-      text-decoration: none;
-      display: block; width: 100%;
-    }
-    .modal-link:active { color: var(--red); }
   </style>
 </head>
 <body>
@@ -237,37 +208,19 @@
         </div>
       </div>
 
-      <button class="btn-video" onclick="abrirModal()">
+      <!-- Botón directo al vídeo, sin modal -->
+      <a class="btn-video"
+         href="https://tutorafa.github.io/ActualizacionAppcol/Reactivacion_actividad.mp4"
+         target="_blank"
+         rel="noopener">
         <svg viewBox="0 0 24 24" fill="white">
           <polygon points="6,4 20,12 6,20" />
         </svg>
         <span>Ver vídeo</span>
-      </button>
-
-    </div>
-  </div>
-
-  <div class="overlay" id="overlay" onclick="cerrarSiFuera(event)">
-    <div class="modal">
-      <a class="modal-link"
-         href="https://tutorafa.github.io/ActualizacionAppcol/Reactivacion_actividad.mp4"
-         target="_blank"
-         rel="noopener">
-        Vas a ver el vídeo.<br>Toca aquí para continuar.
       </a>
+
     </div>
   </div>
-
-  <script>
-    function abrirModal() {
-      document.getElementById('overlay').classList.add('visible');
-    }
-    function cerrarSiFuera(e) {
-      if (e.target === document.getElementById('overlay')) {
-        document.getElementById('overlay').classList.remove('visible');
-      }
-    }
-  </script>
 
 </body>
 </html>
